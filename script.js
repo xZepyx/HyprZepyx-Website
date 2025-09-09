@@ -146,11 +146,7 @@ const themes = {
                 description: 'Terminal with light theme and transparency',
                 image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/Terminal.png'
             },
-            {
-                title: 'Waybar',
-                description: 'Light themed waybar with glossy effects',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/Waybar.png'
-            },
+            
             {
                 title: 'Notifications',
                 description: 'SwayNC notification center with light theme',
