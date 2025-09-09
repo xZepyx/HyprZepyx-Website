@@ -1,2 +1,2 @@
 ## Just a website for :
-> [HyprZepyx Project](github.com/xZepyx/HyprZepyx/)
+> [HyprZepyx Project](https://github.com/xZepyx/HyprZepyx/)
