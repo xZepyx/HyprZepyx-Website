@@ -3,540 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyprZepyx - Fatal Exception : Elegance</title>
-    <meta name="description" content="HyprZepyx - A powerful, visually stunning Hyprland configuration built for speed, workflow efficiency, and aesthetics.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>HyprZepyx - Ultimate Hyprland Configuration</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
-    <header class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">HZ</div>
-                <div class="logo-text">
-                    <h1>HyprZepyx</h1>
-                    <p>Fatal Exception : Elegance</p>
-                </div>
-            </div>
-            
-            <nav class="nav-tabs">
-                <button class="tab-btn active" data-tab="home">
-                    <i class="fas fa-home"></i> Home
-                </button>
-                <button class="tab-btn" data-tab="screenshots">
-                    <i class="fas fa-images"></i> Screenshots
-                </button>
-                <button class="tab-btn" data-tab="installation">
-                    <i class="fas fa-download"></i> Installation
-                </button>
-                <button class="tab-btn" data-tab="docs">
-                    <i class="fas fa-book"></i> Docs
-                </button>
-                <button class="tab-btn" data-tab="about">
-                    <i class="fas fa-user"></i> About
-                </button>
-            </nav>
-            
-            <a href="https://github.com/xZepyx/HyprZepyx" target="_blank" class="github-link">
+            <div class="nav-logo">
                 <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
+                <span>HyprZepyx</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#screenshots" class="nav-link">Screenshots</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#installation" class="nav-link">Installation</a>
+                <a href="https://github.com/xZepyx/HyprZepyx" target="_blank" class="nav-link github-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Home Tab -->
-        <section id="home" class="tab-content active">
-            <!-- Hero Section -->
-            <div class="hero">
-                <div class="hero-logo">HZ</div>
-                <h1 class="hero-title">HyprZepyx</h1>
-                <p class="hero-subtitle">Fatal Exception : Elegance</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-desktop"></i>
+                    <span>Hyprland Configuration</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">HyprZepyx</span>
+                    <br>Ultimate Wayland Experience
+                </h1>
                 <p class="hero-description">
-                    A powerful, visually stunning Hyprland configuration built for speed, workflow efficiency, and aesthetics. 
-                    Where minimal design meets maximum functionality.
+                    A meticulously crafted Hyprland configuration featuring stunning visuals, 
+                    smooth animations, and a productive workflow. Built for power users who 
+                    demand both beauty and functionality.
                 </p>
-                
-                <!-- Stats -->
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number" id="stars-count">43</div>
-                        <div class="stat-label">Stars</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="forks-count">1</div>
-                        <div class="stat-label">Forks</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Themes</div>
-                    </div>
-                </div>
-                
-                <!-- CTA Buttons -->
-                <div class="cta-buttons">
-                    <a href="https://github.com/xZepyx/HyprZepyx" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-github"></i> Get Started
+                <div class="hero-buttons">
+                    <a href="#installation" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Get Started
                     </a>
-                    <button class="btn btn-secondary" onclick="switchTab('screenshots')">
-                        <i class="fas fa-images"></i> View Screenshots
-                    </button>
+                    <a href="#screenshots" class="btn btn-secondary">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </a>
                 </div>
-            </div>
-            
-            <!-- Features Grid -->
-            <div class="features-section">
-                <h2>Key Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon primary"><i class="fas fa-bolt"></i></div>
-                        <h3>Lightning Fast</h3>
-                        <p>Optimized for speed with minimal resource usage and instant workspace switching.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-number" id="stars">42</span>
+                        <span class="stat-label">Stars</span>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon accent"><i class="fas fa-palette"></i></div>
-                        <h3>4 Beautiful Themes</h3>
-                        <p>Spectral-Horizon, Kernel-Fault, Abyss, and Lumen - each with unique aesthetics.</p>
+                    <div class="stat">
+                        <i class="fas fa-code-branch"></i>
+                        <span class="stat-number" id="forks">8</span>
+                        <span class="stat-label">Forks</span>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon primary"><i class="fas fa-cogs"></i></div>
-                        <h3>Highly Configurable</h3>
-                        <p>Extensive customization options with Waybar, Eww widgets, and Rofi launchers.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon accent"><i class="fas fa-layer-group"></i></div>
-                        <h3>Smart Workspaces</h3>
-                        <p>Persistent workspaces 1-9 with dynamic app icons and workspace-aware modules.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon primary"><i class="fas fa-keyboard"></i></div>
-                        <h3>Intuitive Keybinds</h3>
-                        <p>Carefully crafted keybindings for efficient workflow and seamless navigation.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon accent"><i class="fas fa-code"></i></div>
-                        <h3>Developer Ready</h3>
-                        <p>Pre-configured for development with terminal themes, app launchers, and productivity scripts.</p>
+                    <div class="stat">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="stat-number" id="issues">3</span>
+                        <span class="stat-label">Issues</span>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="hero-visual">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <span class="terminal-title">~/HyprZepyx</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">git clone https://github.com/xZepyx/HyprZepyx.git</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output">Cloning into 'HyprZepyx'...</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output">✓ Complete! Ready to transform your desktop.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Screenshots Tab -->
-        <section id="screenshots" class="tab-content">
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
             <div class="section-header">
-                <h2>Screenshots Gallery</h2>
-                <p>Explore the four stunning themes of HyprZepyx</p>
+                <h2>About HyprZepyx</h2>
+                <p>A comprehensive Hyprland setup that transforms your desktop experience</p>
             </div>
-            
-            <div class="theme-selector">
-                <button class="theme-btn active" data-theme="spectral-horizon">Spectral-Horizon</button>
-                <button class="theme-btn" data-theme="kernel-fault">Kernel-Fault</button>
-                <button class="theme-btn" data-theme="abyss">Abyss</button>
-                <button class="theme-btn" data-theme="lumen">Lumen</button>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>🚀 What is HyprZepyx?</h3>
+                    <p>HyprZepyx is a meticulously crafted Hyprland configuration that brings together the best of modern Linux desktop environments. It combines stunning visual effects, smooth animations, and a highly productive workflow into one cohesive package.</p>
+                    
+                    <h3>🎯 Philosophy</h3>
+                    <p>Built for power users who refuse to compromise between aesthetics and functionality. Every animation, keybinding, and visual element has been carefully tuned to provide an exceptional user experience.</p>
+                    
+                    <h3>✨ Key Components</h3>
+                    <ul>
+                        <li><strong>Hyprland:</strong> Dynamic tiling Wayland compositor</li>
+                        <li><strong>Waybar:</strong> Highly customizable status bar</li>
+                        <li><strong>Rofi:</strong> Beautiful application launcher</li>
+                        <li><strong>Dunst:</strong> Lightweight notification daemon</li>
+                        <li><strong>Kitty:</strong> GPU-accelerated terminal emulator</li>
+                    </ul>
+                </div>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Performance</h4>
+                        <p>Optimized for speed with minimal resource usage</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Customizable</h4>
+                        <p>Easy to theme and modify to your preferences</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Complete</h4>
+                        <p>Everything needed for a functional desktop</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Community</h4>
+                        <p>Active support and regular updates</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="theme-gallery" id="theme-gallery">
-                <!-- Theme content will be populated by JavaScript -->
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Installation Tab -->
-        <section id="installation" class="tab-content">
+<!-- Screenshots Section -->
+<section id="screenshots" class="screenshots">
+    <div class="container">
+        <div class="section-header">
+            <h2>Screenshots Gallery</h2>
+            <p>See HyprZepyx in action across different scenarios</p>
+        </div>
+        <div class="screenshot-grid">
+            <!-- Abyss Desktop -->
+            <div class="screenshot-item" onclick="openModal('https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/desktop.png')">
+                <img src="https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/desktop.png" alt="Clean Desktop" loading="lazy">
+                <div class="screenshot-overlay">
+                    <h4>Clean Desktop</h4>
+                    <p>Minimalist desktop with beautiful wallpaper</p>
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+
+            <!-- Spectral-Horizon Rofi -->
+            <div class="screenshot-item" onclick="openModal('https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/rofi.png')">
+                <img src="https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/launcher.png" alt="Application Launcher" loading="lazy">
+                <div class="screenshot-overlay">
+                    <h4>Application Launcher</h4>
+                    <p>QS launcher with custom theme</p>
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+
+            <!-- Kernel-Fault Terminal -->
+            <div class="screenshot-item" onclick="openModal('https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/kernel-fault/terminal.png')">
+                <img src="https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/Code.png" alt="Terminal Setup" loading="lazy">
+                <div class="screenshot-overlay">
+                    <h4>Terminal Environment</h4>
+                    <p>Customized terminal with beautiful prompt</p>
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+
+            <!-- Abyss Workspace -->
+            <div class="screenshot-item" onclick="openModal('https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/workspaces.png')">
+                <img src="https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/hyprlock.png" alt="Workspace Management" loading="lazy">
+                <div class="screenshot-overlay">
+                    <h4>Hyprlock</h4>
+                    <p>A Simple Lock</p>
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+
+            <!-- Lumen Waybar -->
+            <div class="screenshot-item" onclick="openModal('https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/Waybar.png')">
+                <img src="https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/desktop.png" alt="Waybar Customization" loading="lazy">
+                <div class="screenshot-overlay">
+                    <h4>Lumen</h4>
+                    <p>Clean Light Theme</p>
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+
+            <!-- Spectral-Horizon Coding -->
+            <div class="screenshot-item" onclick="openModal('https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/coding.png')">
+                <img src="https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/kernel-fault/cc.png" alt="Development Workflow" loading="lazy">
+                <div class="screenshot-overlay">
+                    <h4>Development Setup</h4>
+                    <p>Optimized coding environment</p>
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Features</h2>
+                <p>Everything you need for the ultimate Hyprland experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-magic"></i>
+                        <h3>Smooth Animations</h3>
+                    </div>
+                    <p>Carefully tuned animations that provide visual feedback without being distracting. Every transition feels fluid and natural.</p>
+                    <div class="feature-tags">
+                        <span class="tag">60fps</span>
+                        <span class="tag">GPU Accelerated</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-keyboard"></i>
+                        <h3>Smart Keybindings</h3>
+                    </div>
+                    <p>Intuitive keyboard shortcuts that enhance your workflow. Vim-inspired navigation with modern conveniences.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Vim-like</span>
+                        <span class="tag">Customizable</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Workspace Management</h3>
+                    </div>
+                    <p>Efficient workspace switching and window management. Multiple monitor support with per-workspace wallpapers.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Multi-monitor</span>
+                        <span class="tag">Dynamic</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-bell"></i>
+                        <h3>Smart Notifications</h3>
+                    </div>
+                    <p>Beautiful notification system with priority levels and smart grouping. Never miss important updates.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Priority</span>
+                        <span class="tag">Grouped</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-search"></i>
+                        <h3>App Launcher</h3>
+                    </div>
+                    <p>Fast and beautiful application launcher with fuzzy search, recent apps, and custom commands.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Fuzzy Search</span>
+                        <span class="tag">Recent Apps</span>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>System Monitoring</h3>
+                    </div>
+                    <p>Elegant system resource monitoring with customizable widgets. Keep track of CPU, memory, and network usage.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Real-time</span>
+                        <span class="tag">Widgets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
             <div class="section-header">
                 <h2>Installation Guide</h2>
-                <p>Get HyprZepyx up and running in minutes</p>
+                <p>Get up and running with HyprZepyx in minutes</p>
             </div>
-            
-            <!-- Prerequisites -->
-            <div class="install-card">
-                <h3><i class="fas fa-list-check"></i> Prerequisites</h3>
-                <p>Ensure you have the following dependencies installed:</p>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyToClipboard('sudo pacman -S kitty waybar swww swaync eww rofi hyprland')">Copy</button>
-                    <code>sudo pacman -S kitty waybar swww swaync eww rofi hyprland</code>
-                </div>
-                <p>Or use the automated installer:</p>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyToClipboard('bash deps-installer.sh')">Copy</button>
-                    <code>bash deps-installer.sh</code>
-                </div>
-            </div>
-            
-            <!-- Installation Steps -->
-            <div class="install-steps">
-                <div class="install-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Clone the Repository</h3>
-                        <p>Download HyprZepyx to your local machine:</p>
-                        <div class="code-block">
-                            <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/xZepyx/HyprZepyx.git ~/.config/hyprzepyx\\ncd ~/.config/hyprzepyx')">Copy</button>
-                            <code>git clone https://github.com/xZepyx/HyprZepyx.git ~/.config/hyprzepyx<br>cd ~/.config/hyprzepyx</code>
+            <div class="installation-content">
+                <div class="installation-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Prerequisites</h3>
+                            <p>Make sure you have Hyprland installed and backup your current config.</p>
+                            <div class="code-block">
+                                <code>cp -r ~/.config/ ~/.config/conf.bak</code>
+                                <button class="copy-btn" onclick="copyToClipboard('cp -r ~/.config/ ~/.config/conf.bak')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Clone Repository</h3>
+                            <p>Clone HyprZepyx and install dependencies.</p>
+                            <div class="code-block">
+                                <code>git clone https://github.com/xZepyx/HyprZepyx.git ~/hyprzepyx<br>cd ~/hyprzepyx<br>bash deps-installer.sh</code>
+                                <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/xZepyx/HyprZepyx.git ~/hyprzepyx && cd ~/hyprzepyx && bash deps-installer.sh')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Setup Configuration</h3>
+                            <p>Copy configs and set permissions.</p>
+                            <div class="code-block">
+                                <code>cp -r ~/.config/hypr/configs/* ~/.config/<br>chmod +x ~/.config/hypr/scripts/*</code>
+                                <button class="copy-btn" onclick="copyToClipboard('cp -r ~/.config/hypr/configs/* ~/.config/ && chmod +x ~/.config/hypr/scripts/*')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Launch Hyprland</h3>
+                            <p>Start your new desktop environment.</p>
+                            <div class="code-block">
+                                <code>Hyprland</code>
+                                <button class="copy-btn" onclick="copyToClipboard('Hyprland')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="install-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Install Dependencies</h3>
-                        <p>Run the prerequisites script to install all required packages:</p>
-                        <div class="code-block">
-                            <button class="copy-btn" onclick="copyToClipboard('bash prerequisites.sh')">Copy</button>
-                            <code>bash prerequisites.sh</code>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="install-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Copy Configuration Files</h3>
-                        <p>Copy the Hyprland configuration to your config directory:</p>
-                        <div class="code-block">
-                            <button class="copy-btn" onclick="copyToClipboard('cp -r config/* ~/.config/')">Copy</button>
-                            <code>cp -r config/* ~/.config/</code>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="install-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Launch Hyprland</h3>
-                        <p>Start your new HyprZepyx desktop:</p>
-                        <div class="code-block">
-                            <button class="copy-btn" onclick="copyToClipboard('hyprland')">Copy</button>
-                            <code>hyprland</code>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pro Tips -->
-            <div class="install-card">
-                <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
-                <ul class="tips-list">
-                    <li><i class="fas fa-check"></i> Adjust paths in scripts if you have a custom setup directory</li>
-                    <li><i class="fas fa-check"></i> Install recommended GTK themes and fonts for the best visual experience</li>
-                    <li><i class="fas fa-check"></i> Use <code>Super + D</code> to open the app launcher after installation</li>
-                    <li><i class="fas fa-check"></i> Check the troubleshooting section if you encounter any issues</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Documentation Tab -->
-        <section id="docs" class="tab-content">
-            <div class="section-header">
-                <h2>Documentation</h2>
-                <p>Complete guide to HyprZepyx keybindings and configuration</p>
-            </div>
-            
-            <div class="docs-grid">
-                <!-- General Keybindings -->
-                <div class="docs-card">
-                    <h3><i class="fas fa-keyboard"></i> General Keybindings</h3>
-                    <div class="keybindings">
-                        <div class="keybind">
-                            <span class="key">Super + Enter</span>
-                            <span class="action">Launch Terminal</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + C</span>
-                            <span class="action">Kill Window</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + D</span>
-                            <span class="action">App Launcher</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + E</span>
-                            <span class="action">File Manager</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + V</span>
-                            <span class="action">Toggle Floating</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + Space</span>
-                            <span class="action">Toggle Fullscreen</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + B</span>
-                            <span class="action">Wallpaper Switcher</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Alt + L</span>
-                            <span class="action">Lock Screen</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Workspace Controls -->
-                <div class="docs-card">
-                    <h3><i class="fas fa-layer-group"></i> Workspace Controls</h3>
-                    <div class="keybindings">
-                        <div class="keybind">
-                            <span class="key">Super + [1-9]</span>
-                            <span class="action">Switch Workspace</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + Shift + [1-9]</span>
-                            <span class="action">Move to Workspace</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + Arrow Keys</span>
-                            <span class="action">Move Focus</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + Mouse Wheel</span>
-                            <span class="action">Cycle Workspaces</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + Left Click</span>
-                            <span class="action">Move Window</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">Super + Right Click</span>
-                            <span class="action">Resize Window</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Media Controls -->
-                <div class="docs-card">
-                    <h3><i class="fas fa-volume-up"></i> Media & System</h3>
-                    <div class="keybindings">
-                        <div class="keybind">
-                            <span class="key">XF86AudioRaiseVolume</span>
-                            <span class="action">Volume +5%</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">XF86AudioLowerVolume</span>
-                            <span class="action">Volume -5%</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">XF86AudioMute</span>
-                            <span class="action">Toggle Mute</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">XF86MonBrightnessUp</span>
-                            <span class="action">Brightness +5%</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">XF86MonBrightnessDown</span>
-                            <span class="action">Brightness -5%</span>
-                        </div>
-                        <div class="keybind">
-                            <span class="key">XF86AudioPlay</span>
-                            <span class="action">Play/Pause</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Configuration -->
-                <div class="docs-card">
-                    <h3><i class="fas fa-cog"></i> Configuration Files</h3>
-                    <div class="config-files">
-                        <div class="config-item">
-                            <h4>Hyprland Config</h4>
-                            <code>~/.config/hyprland/hyprland.conf</code>
-                        </div>
-                        <div class="config-item">
-                            <h4>Waybar Themes</h4>
-                            <code>~/.config/waybar/</code>
-                        </div>
-                        <div class="config-item">
-                            <h4>Eww Widgets</h4>
-                            <code>~/.config/eww/</code>
-                        </div>
-                        <div class="config-item">
-                            <h4>Rofi Launchers</h4>
-                            <code>~/.config/rofi/</code>
-                        </div>
-                        <div class="config-item">
-                            <h4>Wallpapers</h4>
-                            <code>~/.config/hyprzepyx/wallpapers/</code>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Troubleshooting -->
-            <div class="docs-card full-width">
-                <h3><i class="fas fa-tools"></i> Troubleshooting</h3>
-                <div class="troubleshoot-grid">
-                    <div class="troubleshoot-section">
-                        <h4>Common Issues</h4>
+                <div class="installation-sidebar">
+                    <div class="requirements-card">
+                        <h4><i class="fas fa-list-check"></i> Requirements</h4>
                         <ul>
-                            <li>• Waybar icons missing: Install FontAwesome or Material Icons</li>
-                            <li>• Eww widgets missing: Run <code>eww daemon</code> before Hyprland</li>
-                            <li>• Rofi launcher errors: Check config.rasi paths</li>
-                            <li>• Hyprland crashes: Check <code>~/.local/share/hyprland.log</code></li>
+                            <li>Arch Linux (recommended)</li>
+                            <li>Hyprland compositor</li>
+                            <li>4GB RAM (Minimum)</li>
+                            <li>Intel I3 or AMD R3 Processor</li>
                         </ul>
                     </div>
-                    <div class="troubleshoot-section">
-                        <h4>Quick Fixes</h4>
-                        <ul>
-                            <li>• Restart Waybar: <code>killall waybar && waybar &</code></li>
-                            <li>• Reload Hyprland: <code>hyprctl reload</code></li>
-                            <li>• Reset wallpaper: <code>swww img /path/to/wallpaper</code></li>
-                            <li>• Check logs: <code>journalctl -u hyprland</code></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Tab -->
-        <section id="about" class="tab-content">
-            <div class="section-header">
-                <h2>About the Project</h2>
-                <p>Meet the creator and learn about HyprZepyx's journey</p>
-            </div>
-            
-            <!-- Developer Profile -->
-            <div class="profile-card">
-                <div class="profile-avatar">AY</div>
-                <div class="profile-info">
-                    <h3>Aditya Yadav</h3>
-                    <p class="profile-handle">@xZepyx</p>
-                    <p class="profile-bio">
-                        Developer and Linux enthusiast passionate about creating beautiful, functional desktop environments. 
-                        HyprZepyx represents the perfect balance between aesthetics and productivity.
-                    </p>
-                    <div class="profile-links">
-                        <a href="https://github.com/xZepyx" target="_blank" class="btn btn-secondary">
-                            <i class="fab fa-github"></i> GitHub Profile
-                        </a>
-                        <a href="mailto:zepyxunderscore@gmail.com" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> Contact
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project Story -->
-            <div class="story-card">
-                <h3><i class="fas fa-book-open"></i> Project Story</h3>
-                <div class="story-content">
-                    <p>
-                        HyprZepyx was born from a desire to create the perfect desktop environment that doesn't compromise on speed, 
-                        functionality, or visual appeal. Starting as a personal configuration, it evolved into a comprehensive 
-                        Hyprland setup that embodies the philosophy of "Fatal Exception : Elegance."
-                    </p>
-                    <p>
-                        The project focuses on three core principles: <strong>Speed</strong> - lightning-fast 
-                        performance even on older hardware, <strong>Clarity</strong> - intuitive design 
-                        that gets out of your way, and <strong>Aesthetics</strong> - beautiful visuals 
-                        that inspire productivity.
-                    </p>
-                    <p>
-                        Each of the four themes represents a different mood and workflow style, from the vibrant gradients of 
-                        Spectral-Horizon to the minimal elegance of Abyss. The project continues to evolve with community 
-                        feedback and new Hyprland features.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="about-grid">
-                <!-- Project Stats -->
-                <div class="about-card">
-                    <h3><i class="fas fa-chart-line"></i> Project Stats</h3>
-                    <div class="stats-list">
-                        <div class="stat-row">
-                            <span>GitHub Stars</span>
-                            <span class="stat-value" id="about-stars">43</span>
-                        </div>
-                        <div class="stat-row">
-                            <span>Forks</span>
-                            <span class="stat-value" id="about-forks">1</span>
-                        </div>
-                        <div class="stat-row">
-                            <span>Themes</span>
-                            <span class="stat-value">4</span>
-                        </div>
-                        <div class="stat-row">
-                            <span>License</span>
-                            <span class="stat-value">GNU GPLv3</span>
+                    <div class="support-card">
+                        <h4><i class="fas fa-life-ring"></i> Need Help?</h4>
+                        <p>Check out our documentation or join the community for support.</p>
+                        <div class="support-links">
+                            <a href="https://github.com/xZepyx/HyprZepyx/issues" target="_blank">
+                                <i class="fas fa-bug"></i> Report Issues
+                            </a>
+                            <a href="https://github.com/xZepyx/HyprZepyx/discussions" target="_blank">
+                                <i class="fas fa-comments"></i> Discussions
+                            </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Acknowledgments -->
-                <div class="about-card">
-                    <h3><i class="fas fa-heart"></i> Acknowledgments</h3>
-                    <div class="acknowledgments">
-                        <a href="https://github.com/hyprwm/hyprland" target="_blank">
-                            <i class="fas fa-check"></i> Hyprland
-                        </a>
-                        <a href="https://github.com/ignis-sh/ignis" target="_blank">
-                            <i class="fas fa-check"></i> Ignis Project
-                        </a>
-                        <a href="https://github.com/davatorium/rofi" target="_blank">
-                            <i class="fas fa-check"></i> Rofi
-                        </a>
-                        <a href="https://elkowar.github.io/eww/" target="_blank">
-                            <i class="fas fa-check"></i> Eww
-                        </a>
-                        <a href="https://github.com/Alexays/Waybar" target="_blank">
-                            <i class="fas fa-check"></i> Waybar
-                        </a>
-                    </div>
-                </div>
             </div>
-            
-            <!-- License & Contributing -->
-            <div class="license-card">
-                <h3><i class="fas fa-code-branch"></i> License & Contributing</h3>
-                <div class="license-grid">
-                    <div>
-                        <h4>Open Source License</h4>
-                        <p>
-                            HyprZepyx is licensed under GNU GPLv3, which means you're free to use, modify, 
-                            and redistribute the code. The project encourages customization and community contributions.
-                        </p>
-                        <p>© 2025–2040 Aditya Yadav - Licensed under GNU GPLv3</p>
-                    </div>
-                    <div>
-                        <h4>How to Contribute</h4>
-                        <ul>
-                            <li>• Fork the repository on GitHub</li>
-                            <li>• Create a feature branch for your changes</li>
-                            <li>• Submit a pull request with detailed description</li>
-                            <li>• Join discussions in issues and pull requests</li>
-                            <li>• Share your custom themes and configurations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-icon small">HZ</div>
-                <span>HyprZepyx</span>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>HyprZepyx</h4>
+                    <p>Ultimate Hyprland configuration for power users who demand both beauty and functionality.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/xZepyx" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#screenshots">Screenshots</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/xZepyx/HyprZepyx" target="_blank">Source Code</a></li>
+                        <li><a href="https://github.com/xZepyx/HyprZepyx/releases" target="_blank">Releases</a></li>
+                        <li><a href="https://github.com/xZepyx/HyprZepyx/issues" target="_blank">Issues</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/xZepyx/HyprZepyx/discussions" target="_blank">Discussions</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>Fatal Exception : Elegance</p>
-            <div class="footer-links">
-                <a href="https://github.com/xZepyx/HyprZepyx" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:zepyxunderscore@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HyprZepyx. Licensed under MIT License.</p>
+                <p>Made with ❤️ for the Linux community</p>
             </div>
-            <p class="footer-copyright">
-                © 2025 Aditya Yadav. Licensed under GNU GPLv3. Built with passion for the Linux community.
-            </p>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

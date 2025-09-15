@@ -1,214 +1,159 @@
-// Tab Switching Functionality
-function switchTab(tabName) {
-    // Hide all tab contents
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(tab => {
-        tab.classList.remove('active');
+// DOM Elements
+const navbar = document.querySelector('.navbar');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+const modal = document.getElementById('modal');
+const modalImage = document.getElementById('modal-image');
+
+// Mobile menu toggle
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
-    
-    // Remove active class from all tab buttons
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    tabButtons.forEach(btn => {
-        btn.classList.remove('active');
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+    } else {
+        navbar.style.background = 'rgba(10, 10, 10, 0.9)';
+    }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
-    
-    // Show selected tab content
-    const selectedTab = document.getElementById(tabName);
-    if (selectedTab) {
-        selectedTab.classList.add('active');
-    }
-    
-    // Add active class to selected tab button
-    const selectedButton = document.querySelector(`[data-tab="${tabName}"]`);
-    if (selectedButton) {
-        selectedButton.classList.add('active');
-    }
-    
-    // Smooth scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Counter animation for hero stats
+function animateCounter(element, target) {
+    const increment = target / 100;
+    let current = 0;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 20);
 }
 
-// Theme data for screenshots using actual project images
-const themes = {
-    'spectral-horizon': {
-        name: 'Spectral-Horizon',
-        subtitle: '(quickshell)',
-        description: 'Vibrant gradients with minimal widgets and clean workspace design',
-        screenshots: [
-            {
-                title: 'Desktop Overview',
-                description: 'Clean workspace with vibrant gradients and minimal widgets',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/desktop.png'
-            },
-            {
-                title: 'App Launcher',
-                description: 'Elegant launcher with search and app grid',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/launcher.png'
-            },
-            {
-                title: 'Widgets Overview',
-                description: 'System monitoring widgets and quickshell setup',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/widgets.png'
-            },
-            {
-                title: 'Wallpaper Menu',
-                description: 'Wallpaper switcher with preview functionality',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/spectral-horizon/wall.png'
-            }
-        ]
-    },
-    'kernel-fault': {
-        name: 'Kernel-Fault',
-        subtitle: '(ignis)',
-        description: 'Dark theme with neon blue accents and advanced system widgets',
-        screenshots: [
-            {
-                title: 'Widget Overview',
-                description: 'Comprehensive widget system with system monitoring',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/kernel-fault/widgets.png'
-            },
-            {
-                title: 'App Launcher',
-                description: 'Ignis-powered launcher with grid layout',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/kernel-fault/launcher.png'
-            },
-            {
-                title: 'Control Center',
-                description: 'System control panel with quick toggles and settings',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/kernel-fault/cc.png'
-            },
-            {
-                title: 'Terminal Layout',
-                description: 'Kitty terminal with custom theme and layout',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/kernel-fault/kitty.png'
-            }
-        ]
-    },
-    'abyss': {
-        name: 'Abyss',
-        subtitle: '(eww)',
-        description: 'Ultra-minimal dark theme with subtle accents and clean aesthetics',
-        screenshots: [
-            {
-                title: 'Minimal Desktop',
-                description: 'Ultra-clean desktop with minimal distractions',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/desktop.png'
-            },
-            {
-                title: 'Code Editor',
-                description: 'VSCode with Abyss theme integration',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/Code.png'
-            },
-            {
-                title: 'Lock Screen',
-                description: 'Elegant hyprlock screen with minimal design',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/hyprlock.png'
-            },
-            {
-                title: 'Wallpaper Switcher',
-                description: 'Rofi wallpaper manager with preview',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/rofi-wayland-wall.png'
-            },
-            {
-                title: 'EWW Widgets',
-                description: 'Minimal widget set with essential system info',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/eww-minimal.png'
-            },
-            {
-                title: 'App Launcher',
-                description: 'Clean rofi application launcher',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Abyss/rofi-op.png'
-            }
-        ]
-    },
-    'lumen': {
-        name: 'Lumen',
-        subtitle: '(glossy)',
-        description: 'Light theme with glossy effects, transparency, and elegant design',
-        screenshots: [
-            {
-                title: 'Glossy Desktop',
-                description: 'Light theme with glassmorphism effects',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/desktop.png'
-            },
-            {
-                title: 'Lock Screen',
-                description: 'Hyprlock with light theme styling',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/hyprlock.png'
-            },
-            {
-                title: 'App Launcher',
-                description: 'Rofi launcher with glossy transparency',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/rofi-op.png'
-            },
-            {
-                title: 'Terminal',
-                description: 'Terminal with light theme and transparency',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/Terminal.png'
-            },
-            
-            {
-                title: 'Notifications',
-                description: 'SwayNC notification center with light theme',
-                image: 'https://raw.githubusercontent.com/xZepyx/HyprZepyx/main/.previews/Lumen/swaync.png'
-            }
-        ]
+// Fetch GitHub data
+async function fetchGitHubData() {
+    try {
+        const response = await fetch('https://api.github.com/repos/xZepyx/HyprZepyx');
+        const data = await response.json();
+        
+        // Update stats with real data
+        const starsElement = document.getElementById('stars');
+        const forksElement = document.getElementById('forks');
+        
+        if (starsElement) {
+            animateCounter(starsElement, data.stargazers_count);
+        }
+        
+        if (forksElement) {
+            animateCounter(forksElement, data.forks_count);
+        }
+        
+        // Fetch issues count separately
+        const issuesResponse = await fetch('https://api.github.com/repos/xZepyx/HyprZepyx/issues?state=open');
+        const issuesData = await issuesResponse.json();
+        
+        const issuesElement = document.getElementById('issues');
+        if (issuesElement) {
+            animateCounter(issuesElement, issuesData.length);
+        }
+        
+    } catch (error) {
+        console.log('GitHub API fetch failed, using fallback data:', error);
+        // Fallback to static data if API fails
+        const starsElement = document.getElementById('stars');
+        const forksElement = document.getElementById('forks');
+        const issuesElement = document.getElementById('issues');
+        
+        if (starsElement) animateCounter(starsElement, 42);
+        if (forksElement) animateCounter(forksElement, 8);
+        if (issuesElement) animateCounter(issuesElement, 3);
     }
+}
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
-// Theme switching functionality
-function switchTheme(themeName) {
-    // Update theme button states
-    const themeButtons = document.querySelectorAll('.theme-btn');
-    themeButtons.forEach(btn => {
-        btn.classList.remove('active');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Animate counters when hero section is visible
+            if (entry.target.classList.contains('hero')) {
+                fetchGitHubData();
+            }
+            
+            // Add animation classes
+            entry.target.classList.add('animate-in');
+        }
     });
-    
-    const selectedButton = document.querySelector(`[data-theme="${themeName}"]`);
-    if (selectedButton) {
-        selectedButton.classList.add('active');
-    }
-    
-    // Update theme gallery
-    const gallery = document.getElementById('theme-gallery');
-    const themeData = themes[themeName];
-    
-    if (themeData && gallery) {
-        gallery.innerHTML = `
-            <div class="theme-info">
-                <h3>${themeData.name} ${themeData.subtitle}</h3>
-                <p>${themeData.description}</p>
-            </div>
-            <div class="screenshots-grid">
-                ${themeData.screenshots.map(screenshot => `
-                    <div class="screenshot-card">
-                        <img src="${screenshot.image}" alt="${screenshot.title}" loading="lazy">
-                        <h4>${screenshot.title}</h4>
-                        <p>${screenshot.description}</p>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-    }
+}, observerOptions);
+
+// Observe sections for animations
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+// Modal functionality for screenshots
+function openModal(imageUrl) {
+    modal.style.display = 'block';
+    modalImage.src = imageUrl;
+    document.body.style.overflow = 'hidden';
 }
 
+// Close modal
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Escape key to close modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+    }
+});
+
 // Copy to clipboard functionality
-async function copyToClipboard(text) {
-    try {
-        await navigator.clipboard.writeText(text);
-        
-        // Show feedback (you could replace this with a toast notification)
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = 'Copied!';
-        btn.style.background = '#10b981';
-        
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-        }, 2000);
-    } catch (err) {
-        console.error('Failed to copy text: ', err);
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied to clipboard!');
+    }).catch(() => {
         // Fallback for older browsers
         const textArea = document.createElement('textarea');
         textArea.value = text;
@@ -216,244 +161,92 @@ async function copyToClipboard(text) {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        
-        // Show feedback
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = 'Copied!';
+        showToast('Copied to clipboard!');
+    });
+}
+
+// Toast notification
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent-gradient);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        z-index: 10000;
+        animation: slideInUp 0.3s ease-out;
+        box-shadow: var(--shadow-lg);
+        font-weight: 500;
+    `;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.animation = 'slideOutDown 0.3s ease-in';
         setTimeout(() => {
-            btn.textContent = originalText;
-        }, 2000);
-    }
+            document.body.removeChild(toast);
+        }, 300);
+    }, 2000);
 }
 
-// Fetch GitHub stats
-async function fetchGitHubStats() {
-    try {
-        const response = await fetch('https://api.github.com/repos/xZepyx/HyprZepyx');
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Update stats in hero section
-        const starsElement = document.getElementById('stars-count');
-        const forksElement = document.getElementById('forks-count');
-        
-        if (starsElement) {
-            starsElement.textContent = data.stargazers_count || 43;
-        }
-        if (forksElement) {
-            forksElement.textContent = data.forks_count || 1;
-        }
-        
-        // Update stats in about section
-        const aboutStarsElement = document.getElementById('about-stars');
-        const aboutForksElement = document.getElementById('about-forks');
-        
-        if (aboutStarsElement) {
-            aboutStarsElement.textContent = data.stargazers_count || 43;
-        }
-        if (aboutForksElement) {
-            aboutForksElement.textContent = data.forks_count || 1;
-        }
-        
-    } catch (error) {
-        console.error('Error fetching GitHub stats:', error);
-        // Keep default values if API fails
-    }
-}
-
-// Smooth scrolling for anchor links
-function smoothScroll(target) {
-    const element = document.querySelector(target);
-    if (element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
-// Intersection Observer for animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements with animation
-    const animatedElements = document.querySelectorAll('.feature-card, .screenshot-card, .docs-card, .about-card');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-}
-
-// Mobile menu toggle
-function toggleMobileMenu() {
-    const navTabs = document.querySelector('.nav-tabs');
-    navTabs.classList.toggle('mobile-open');
-}
-
-// Keyboard navigation
-function handleKeyboardNavigation(event) {
-    // ESC key to close mobile menu
-    if (event.key === 'Escape') {
-        const navTabs = document.querySelector('.nav-tabs');
-        navTabs.classList.remove('mobile-open');
-    }
-    
-    // Arrow keys for tab navigation
-    if (event.target.classList.contains('tab-btn')) {
-        const tabs = Array.from(document.querySelectorAll('.tab-btn'));
-        const currentIndex = tabs.indexOf(event.target);
-        
-        if (event.key === 'ArrowLeft' && currentIndex > 0) {
-            tabs[currentIndex - 1].focus();
-        } else if (event.key === 'ArrowRight' && currentIndex < tabs.length - 1) {
-            tabs[currentIndex + 1].focus();
-        } else if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            event.target.click();
-        }
-    }
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Set up tab button event listeners
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const tabName = button.getAttribute('data-tab');
-            switchTab(tabName);
-        });
-    });
-    
-    // Set up theme button event listeners
-    const themeButtons = document.querySelectorAll('.theme-btn');
-    themeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const themeName = button.getAttribute('data-theme');
-            switchTheme(themeName);
-        });
-    });
-    
-    // Initialize default theme
-    switchTheme('spectral-horizon');
-    
-    // Set up copy button event listeners
-    const copyButtons = document.querySelectorAll('.copy-btn');
-    copyButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-        });
-    });
-    
-    // Fetch GitHub stats
-    fetchGitHubStats();
-    
-    // Initialize scroll animations
-    initScrollAnimations();
-    
-    // Add keyboard navigation
-    document.addEventListener('keydown', handleKeyboardNavigation);
-    
-    // Add smooth scrolling to navigation
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const target = link.getAttribute('href');
-            smoothScroll(target);
-        });
-    });
-    
-    // Handle window resize for mobile responsiveness
-    window.addEventListener('resize', () => {
-        const navTabs = document.querySelector('.nav-tabs');
-        if (window.innerWidth > 768) {
-            navTabs.classList.remove('mobile-open');
-        }
-    });
-    
-    // Add loading state removal
-    document.body.classList.add('loaded');
-    
-    // Refresh GitHub stats every 5 minutes
-    setInterval(fetchGitHubStats, 5 * 60 * 1000);
-});
-
-// Add some CSS for mobile menu (inject into head)
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .nav-tabs {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-top: none;
-            flex-direction: column;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .nav-tabs.mobile-open {
-            max-height: 300px;
-        }
-        
-        .mobile-menu-btn {
-            display: block;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-        
-        @media (min-width: 769px) {
-            .mobile-menu-btn {
-                display: none;
-            }
-        }
-    }
-    
-    .loaded .feature-card,
-    .loaded .screenshot-card,
-    .loaded .docs-card,
-    .loaded .about-card {
-        animation: fadeInUp 0.6s ease forwards;
-    }
-    
-    @keyframes fadeInUp {
+// Add CSS for toast animations
+const toastStyles = document.createElement('style');
+toastStyles.textContent = `
+    @keyframes slideInUp {
         from {
+            transform: translateY(100px);
             opacity: 0;
-            transform: translateY(30px);
         }
         to {
-            opacity: 1;
             transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOutDown {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(100px);
+            opacity: 0;
         }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(toastStyles);
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Add loading animation
+    document.body.classList.add('loaded');
+});
+
+// Smooth reveal animations on scroll
+window.addEventListener('scroll', () => {
+    const reveals = document.querySelectorAll('.feature-card, .screenshot-item, .feature-item');
+    
+    reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            reveal.style.opacity = '1';
+            reveal.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+// Add initial styles for reveal animation
+document.addEventListener('DOMContentLoaded', () => {
+    const revealElements = document.querySelectorAll('.feature-card, .screenshot-item, .feature-item');
+    revealElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+});
