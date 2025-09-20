@@ -60,42 +60,49 @@ function animateCounter(element, target) {
 // Fetch GitHub data
 async function fetchGitHubData() {
     try {
+        // Repo data
         const response = await fetch('https://api.github.com/repos/xZepyx/HyprZepyx');
+        if (!response.ok) throw new Error(`Repo fetch failed: ${response.status}`);
         const data = await response.json();
-        
-        // Update stats with real data
+        console.log("Repo data:", data);
+
+        // Stars
         const starsElement = document.getElementById('stars');
-        const forksElement = document.getElementById('forks');
-        
         if (starsElement) {
-            animateCounter(starsElement, data.stargazers_count);
+            animateCounter(starsElement, Number(data.stargazers_count) || 0);
         }
-        
+
+        // Forks
+        const forksElement = document.getElementById('forks');
         if (forksElement) {
-            animateCounter(forksElement, data.forks_count);
+            animateCounter(forksElement, Number(data.forks_count) || 0);
         }
-        
-        // Fetch issues count separately
+
+        // Issues
         const issuesResponse = await fetch('https://api.github.com/repos/xZepyx/HyprZepyx/issues?state=open');
+        if (!issuesResponse.ok) throw new Error(`Issues fetch failed: ${issuesResponse.status}`);
         const issuesData = await issuesResponse.json();
-        
+        console.log("Issues data:", issuesData);
+
         const issuesElement = document.getElementById('issues');
         if (issuesElement) {
-            animateCounter(issuesElement, issuesData.length);
+            animateCounter(issuesElement, Number(issuesData.length) || 0);
         }
-        
+
     } catch (error) {
-        console.log('GitHub API fetch failed, using fallback data:', error);
-        // Fallback to static data if API fails
+        console.error("GitHub API fetch failed:", error);
+
+        // Fallback values
         const starsElement = document.getElementById('stars');
         const forksElement = document.getElementById('forks');
         const issuesElement = document.getElementById('issues');
-        
-        if (starsElement) animateCounter(starsElement, 42);
-        if (forksElement) animateCounter(forksElement, 8);
-        if (issuesElement) animateCounter(issuesElement, 3);
+
+        if (starsElement) animateCounter(starsElement, 0);
+        if (forksElement) animateCounter(forksElement, 0);
+        if (issuesElement) animateCounter(issuesElement, 0);
     }
 }
+
 
 // Intersection Observer for animations
 const observerOptions = {
